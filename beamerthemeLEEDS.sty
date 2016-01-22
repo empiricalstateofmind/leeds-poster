@@ -1,0 +1,156 @@
+\ProvidesPackage{LEEDS} 
+
+% Original style was created by David Vilar
+% Modified Template for University of Leeds use by Andrew Mellor 2014.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\selectcolormodel{cmyk}
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% custom colors
+\definecolor{i6blue}{cmyk}{1,0.305,0,0.06}
+\definecolor{i6bluedark}{rgb}{0.0156,0.2578,0.5625}
+\definecolor{murmelgray}{HTML}{EEEEEE}
+\definecolor{murmelalert}{HTML}{990000}
+% http://www.colorsontheweb.com/colorwizard.asp#wizard, used start set: #0066cc #002300
+\definecolor{i6colorscheme1}{HTML}{002300}  % e.g. for block title
+\definecolor{i6colorblockbg}{HTML}{002300}
+\definecolor{i6colorblockfg}{HTML}{FFFF66}
+\definecolor{i6colorscheme2}{HTML}{000000}  % e.g. title in headline
+\definecolor{i6colorscheme3}{HTML}{EEEEEE}  % e.g. for poster background
+\definecolor{i6colorscheme4}{HTML}{000000} 
+\definecolor{i6colorschemeHeadline}{cmyk}{1.0,0.3667,0.0,0.2818}  % for headline bg
+%\definecolor{i6colorschemeFootline}{HTML}{000000}  % for headline bg
+\definecolor{i6colorschemeFootline}{cmyk}{1.0,0.3667,0.0,0.2818}  % for headline bg
+
+%\definecolor{mymaincolor}{HTML}{007500}
+\definecolor{mymaincolor}{cmyk}{1.0,0.0,1.0,0.541}
+\definecolor{mycomplimentary}{HTML}{EEEEEE}
+\definecolor{mybright}{HTML}{EEEEEE}
+
+% headline colors and fonts
+%\setbeamercolor{headline}{fg=white,bg=i6colorschemeHeadline}
+\setbeamercolor{headline}{fg=white,bg=mymaincolor}
+\setbeamercolor{title in headline}{fg=mycomplimentary}
+\setbeamercolor{author in headline}{fg=murmelgray}
+\setbeamercolor{institute in headline}{fg=murmelgray}
+\setbeamercolor{logo in headline}{fg=black,bg=murmelgray}
+%\setbeamercolor{separation line}{bg=mybright}
+\setbeamercolor{lower separation line head}{bg=mybright}
+
+% footline colors and fonts
+%\setbeamercolor{footline}{fg=murmelgray,bg=i6colorschemeHeadline}
+%\setbeamerfont{footline}{fg=white, size=\normalsize}
+
+% body colors and fonts
+\setbeamercolor*{normal text}{fg=black,bg=i6colorscheme3}
+
+% block environment
+\setbeamercolor*{block body}{bg=white,fg=black}
+\setbeamercolor*{block title}{fg=mycomplimentary,bg=mymaincolor}
+\setbeamerfont{block title}{size=\large,series=\bf}
+
+% example environment
+%\setbeamercolor*{example title}{fg=white,bg=i6colorscheme1}
+%\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
+
+
+%\setbeamercolor*{example body}{fg=white,bg=i6colorscheme4}
+%\setbeamercolor*{example title}{fg=white,bg=i6colorscheme1}
+
+
+%  \setbeamercolor{framesubtitle}{fg=ta3orange, bg=ta2gray}
+%  \setbeamercolor{author in head/foot}{fg=tabutter, bg=black}
+%  \setbeamercolor{title in head/foot}{bg=tabutter, fg=black}
+
+
+\setbeamercolor{alerted text}{fg=mybright}
+%\setbeamercolor{alerted text}{series=\bf}
+%\setbeamercolor{structure}{fg=i6blue}
+
+%  \setbeamertemplate{itemize/enumerate body begin}{
+%  }
+%  \setbeamertemplate{itemize/enumerate body end}{
+%  }
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[leftskip=1cm,colsep*=.75ex,rounded=true]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,rounded=true,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{  
+  \leavevmode
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+     \begin{column}{.03\paperwidth}
+       \end{column}
+     \begin{column}{.775\paperwidth}
+        \vskip20ex
+        \raggedright
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\Huge{\inserttitle}}\\[2ex]}
+        \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[0.5ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}}
+        \vspace*{2ex}
+      \end{column}
+      \begin{column}{.23\paperwidth}
+        \begin{center}
+          \  \\[2ex]
+          \vskip20ex
+          \includegraphics[width=.6\linewidth]{Leeds_Logo.pdf}
+        \end{center}
+        \vskip20ex
+      \end{column}
+      \begin{column}{.03\paperwidth}
+      \end{column}
+    \end{columns}
+    \vskip4ex
+  \end{beamercolorbox}
+  
+%%      \begin{beamercolorbox}[sep=0.1cm,wd=.1\paperwidth,center]{logo in headline}
+%%        \vskip2ex
+%%      \end{beamercolorbox}  
+%%      \begin{beamercolorbox}[sep=1cm,wd=.7\paperwidth]{headline}
+%%        \usebeamercolor{title in headline}{\raggedright\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+%%        \usebeamercolor{author in headline}{\raggedright\color{fg}\large{\insertauthor}\\[1ex]}
+%%        \usebeamercolor{institute in headline}{\raggedright\color{fg}\large{\insertinstitute}\\[1ex]}     
+%%      \end{beamercolorbox}%
+%%      \begin{beamercolorbox}[sep=0.1cm,wd=.18\paperwidth,center]{logo in headline}
+%%        \includegraphics[height=5cm]{logos/rwth-hks44}
+%%        \vskip2ex
+%%      \end{beamercolorbox}  
+%%    \end{beamercolorbox}
+  
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+  	\begin{beamercolorbox}[wd=\paperwidth]{blockbody}
+  	  \rule{0pt}{1ex}
+  	\end{beamercolorbox}
+	\begin{beamercolorbox}[wd=\paperwidth]{headline}
+	  \rule{0pt}{1.5ex}
+	\end{beamercolorbox}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
+
